@@ -15,21 +15,14 @@ import json
 # Open the JSON file and read the data
 # r -> Read mode
 # w -> Write mode
-with open('./files/MockResponse_GetCourse.json','r') as jsonFileReader:
+with open('files/MockResponse_GetCourse.json', 'r') as jsonFileReader:
     # load() -> This method helps to parse JSON file and returns dictionary
     dictionary_courses = json.load(jsonFileReader)
 
-    # Goal: Extract the price of the Web Automation Course which has name 'Selenium Webdriver Java'
-    webAutomation_Courses = dictionary_courses['courses']['webAutomation']
-    print(webAutomation_Courses)
+    # Extract the second Web Automation Course
+    second_WebAutomation_Course = dictionary_courses['courses']['webAutomation'][1]
+    print(second_WebAutomation_Course) # {'courseTitle': 'Cypress', 'price': '40'}
 
-    # Iterating over a list to check which course has the price 50
-    for webAutomation_Course in webAutomation_Courses:
-        if webAutomation_Course['courseTitle'] == 'Selenium Webdriver Java':
-            print(webAutomation_Course['price']) # 50
-            break
-
-
-
-
-
+     # Extract the details from second Web Automation Course
+    print("second_WebAutomation_Course['courseTitle']: "+second_WebAutomation_Course['courseTitle']) # Cypress
+    print("second_WebAutomation_Course['price']: "+second_WebAutomation_Course['price']) # 40

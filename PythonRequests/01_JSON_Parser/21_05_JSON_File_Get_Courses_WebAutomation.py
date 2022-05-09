@@ -15,7 +15,7 @@ import json
 # Open the JSON file and read the data
 # r -> Read mode
 # w -> Write mode
-with open('./files/MockResponse_GetCourse.json','r') as jsonFileReader:
+with open('files/MockResponse_GetCourse.json', 'r') as jsonFileReader:
     # load() -> This method helps to parse JSON file and returns dictionary
     dictionary_courses = json.load(jsonFileReader)
 
