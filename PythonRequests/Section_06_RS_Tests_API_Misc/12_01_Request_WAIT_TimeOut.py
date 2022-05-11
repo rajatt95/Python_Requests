@@ -10,18 +10,16 @@
 #
 # /***************************************************/
 
-class API_Resources:
-    # Application: Library
-    # Get Book
-    getBook = 'Library/GetBook.php'
-    # Add Book
-    addBook = 'Library/AddBook.php'
-    # Delete Book
-    deleteBook = 'Library/DeleteBook.php'
+# https://realpython.com/python-requests/
+# https://docs.python-requests.org/en/latest/
+# Requests is an elegant and simple HTTP library for Python, built for human beings.
+import requests
 
-    # Application: Library
-    # Get User Repos
-    github_getUserRepos = 'user/repos'
+# timeout=1 (This will wait for 1 second, then, it'll take the response)
+response = requests.get('https://www.rahulshettyacademy.com/', timeout=1)
+
+print(response.status_code)  # 200
+
 
 
 

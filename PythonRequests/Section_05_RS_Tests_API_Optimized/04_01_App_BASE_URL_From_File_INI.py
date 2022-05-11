@@ -20,8 +20,8 @@ config.read('../Z_Utilities/properties.ini')
 
 # config['API'] -> API is a section
 # config['API']['application_Base_URL'] -> application_Base_URL is one of the property under API section
-print(config['API']['application_Base_URL']) # http://216.10.245.166/
-print("config['API']['application_Base_URL']: "+config['API']['application_Base_URL']) # config['API']['application_Base_URL']: http://216.10.245.166/
+print(config['API']['application_library_Base_URL']) # http://216.10.245.166/
+print("config['API']['application_library_Base_URL']: "+config['API']['application_library_Base_URL']) # config['API']['application_library_Base_URL']: http://216.10.245.166/
 
 
 

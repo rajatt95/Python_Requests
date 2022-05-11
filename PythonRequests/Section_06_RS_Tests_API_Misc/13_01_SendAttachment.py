@@ -13,20 +13,24 @@
 # https://realpython.com/python-requests/
 # https://docs.python-requests.org/en/latest/
 # Requests is an elegant and simple HTTP library for Python, built for human beings.
+import requests
+
+# https://petstore.swagger.io/#/pet/uploadFile
+
+url = 'https://petstore.swagger.io/v2/pet/9843217/uploadImage'
+
+# This is a Dictionary
+files = {'file': open('../Z_Utilities/pet.jpeg', 'rb')}
+
+response = requests.post(url, files=files)
+print(response.text)  # {"code":200,"type":"unknown","message":"additionalMetadata: null\nFile uploaded to ./pet.jpeg, 7184 bytes"}
+print(response.status_code)  # 200
 
 
-from PythonRequests.Z_Utilities.Configurations import getConfig
-from PythonRequests.Z_Utilities.Resources import API_Resources
 
-config = getConfig()
 
-application_BaseURL = config['API']['application_library_Base_URL']
-api_resource = API_Resources.getBook
 
-print(application_BaseURL) # http://216.10.245.166/
-print(api_resource) # Library/GetBook.php
 
-print(application_BaseURL+api_resource) # http://216.10.245.166/Library/GetBook.php
 
 
 

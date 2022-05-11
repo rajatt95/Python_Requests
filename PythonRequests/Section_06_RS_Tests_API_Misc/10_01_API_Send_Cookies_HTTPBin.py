@@ -13,22 +13,23 @@
 # https://realpython.com/python-requests/
 # https://docs.python-requests.org/en/latest/
 # Requests is an elegant and simple HTTP library for Python, built for human beings.
+import requests
 
+# https://httpbin.org/#/Cookies/get_cookies
 
-from PythonRequests.Z_Utilities.Configurations import getConfig
-from PythonRequests.Z_Utilities.Resources import API_Resources
+# Cookie -> 'dummy-cookie'
+# Cookie has to be sent as Dictionary
+cookie_dummyCookie = {'visit-cookie': 'Dummy Cookie'}
 
-config = getConfig()
+# Send Cookie - 'dummy-cookie' with URL
+response = requests.get('https://httpbin.org/cookies',
+                        cookies=cookie_dummyCookie)
 
-application_BaseURL = config['API']['application_library_Base_URL']
-api_resource = API_Resources.getBook
+print(response.status_code) # 200
 
-print(application_BaseURL) # http://216.10.245.166/
-print(api_resource) # Library/GetBook.php
-
-print(application_BaseURL+api_resource) # http://216.10.245.166/Library/GetBook.php
-
-
-
-
-
+# Expecting the cookie sent in Response Body
+print(response.text)  # {
+# "cookies": {
+#     "visit-cookie": "Dummy Cookie"
+#   }
+# }

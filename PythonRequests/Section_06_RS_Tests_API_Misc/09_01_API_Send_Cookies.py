@@ -13,22 +13,18 @@
 # https://realpython.com/python-requests/
 # https://docs.python-requests.org/en/latest/
 # Requests is an elegant and simple HTTP library for Python, built for human beings.
+import requests
 
+# https://www.rahulshettyacademy.com/
 
-from PythonRequests.Z_Utilities.Configurations import getConfig
-from PythonRequests.Z_Utilities.Resources import API_Resources
+# Cookie -> 'visit-month'
 
-config = getConfig()
+# Cookie has to be sent as Dictionary
 
-application_BaseURL = config['API']['application_library_Base_URL']
-api_resource = API_Resources.getBook
+cookie_visitMonth = {'visit-month': 'April'}
 
-print(application_BaseURL) # http://216.10.245.166/
-print(api_resource) # Library/GetBook.php
+# Send Cookie with URL
+response = requests.get('https://www.rahulshettyacademy.com/',
+                        cookies=cookie_visitMonth)
 
-print(application_BaseURL+api_resource) # http://216.10.245.166/Library/GetBook.php
-
-
-
-
-
+print(response.status_code)

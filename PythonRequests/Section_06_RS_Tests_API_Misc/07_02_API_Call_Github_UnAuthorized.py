@@ -13,7 +13,6 @@
 # https://realpython.com/python-requests/
 # https://docs.python-requests.org/en/latest/
 # Requests is an elegant and simple HTTP library for Python, built for human beings.
-
 import requests
 
 from PythonRequests.Z_Utilities.Configurations import getConfig
@@ -21,20 +20,17 @@ from PythonRequests.Z_Utilities.Resources import API_Resources
 
 config = getConfig()
 
-application_BaseURL = config['API']['application_library_Base_URL']
-api_resource = API_Resources.getBook
+application_BaseURL = config['API']['application_github_Base_URL']
+api_resource = API_Resources.github_getUserRepos
 
-print(application_BaseURL)
-print(api_resource)
+print(application_BaseURL)  # https://api.github.com/
+print(api_resource)  # user/repos
 
-# GET request
-# response = requests.get('http://216.10.245.166/Library/GetBook.php',
-response = requests.get(application_BaseURL + api_resource,
-                        # Query param
-                        params={'AuthorName': 'Rahul Shetty2'},
-                        # 3rd argument takes information like Header
-                        # We are leaving it blank because this API does not require any headers
-                        )
+url = application_BaseURL + api_resource  # https://api.github.com/user/repos
 
-print(response.status_code) # 200
-assert response.status_code == 200
+# verify=False -> For SSL certificates
+# response = requests.get(url, verify=False, auth=('your-github-account-email', 'your-github-account-password'))
+response = requests.get(url, auth=('your-github-account-email', 'your-github-account-password'))
+
+print(response.status_code)  # 401
+assert response.status_code == 401
