@@ -1,5 +1,5 @@
 # Python_Requests
-Programming | Python | PyCharm | Requests | JSON Parsing
+Python | PyCharm | Requests - GET, POST DELETE | JSON Parsing | Session management | Re-Directions | Timeout | Send Attachments | Assertions - Response Status Codes, Headers, Cookies
 
 ------------------------------------------------------------------------------------------------------------------------
 # Course: <a href="https://www.udemy.com/course/python-sdet-rest-api-automation/">Learn API Automation Testing with Python & BDD Framework </a>
